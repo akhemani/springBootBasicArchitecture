@@ -20,5 +20,5 @@ public interface BasicService<T> {
 
     T findById(Long id);
 
-    void deleteById(Long id);
+    Long deleteById(Long id);
 }

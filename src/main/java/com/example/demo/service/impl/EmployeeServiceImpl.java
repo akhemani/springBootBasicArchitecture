@@ -7,7 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import com.example.demo.model.Employee;
+
+import com.example.demo.entity.Employee;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.service.EmployeeService;
 
@@ -48,8 +49,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public Long deleteById(Long id) {
 		empRepository.deleteById(id);
+		return id;
 	}
 	
 }
