@@ -11,5 +11,6 @@ Simple boot application with some standards features (to be setted) like:
 8. flyway
 9. password hashing
 10. user bases support and authorisation
+11. Email functionality (simple one is added in basic-changes branch)
 
 and some other features (as noted) will get update also.
