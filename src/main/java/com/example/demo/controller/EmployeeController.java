@@ -26,7 +26,7 @@ import com.example.demo.service.EmployeeService;
 import com.example.demo.specification.EmployeeSpecification;
 import io.swagger.annotations.ApiOperation;
 
-// @CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
