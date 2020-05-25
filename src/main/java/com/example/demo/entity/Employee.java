@@ -26,7 +26,7 @@ public class Employee {
 	
 	private Long salary;
 
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
 	private Address address;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)

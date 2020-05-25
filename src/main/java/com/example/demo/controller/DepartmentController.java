@@ -22,7 +22,7 @@ import com.example.demo.entity.Department;
 import com.example.demo.service.DepartmentService;
 import io.swagger.annotations.ApiOperation;
 
-// @CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/api/department")
 public class DepartmentController {
