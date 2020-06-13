@@ -56,7 +56,12 @@ public class EmployeeController {
 		Department dept = employee.getDepartment();
 		employee.setDepartment(departmentService.save(dept));
 		
-		return new ResponseEntity<>(new Response(ResultCode.SUCCESS, empService.save(employee), Message.CREATED), HttpStatus.OK);
+		try {
+			employee = empService.save(employee);
+			return new ResponseEntity<>(new Response(ResultCode.SUCCESS, employee, Message.CREATED), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(new Response(ResultCode.SUCCESS, null, Message.CONSTRAINT_VIOLATION), HttpStatus.OK);
+		}
 	}
 	
 	@GetMapping()
@@ -88,6 +93,12 @@ public class EmployeeController {
 	@GetMapping("/search/{searchedText}")
 	public ResponseEntity<Response> searchText(@PathVariable String searchedText, Pageable pageable) {
 		return new ResponseEntity<>(new Response(ResultCode.SUCCESS, empService.findAll(EmployeeSpecification.searchEmployee(searchedText), pageable), Message.SUCCESS), HttpStatus.OK);		
+	}
+	
+	@CrossOrigin
+	@PostMapping("/filterEmployees")
+	public ResponseEntity<Response> filterEmployees(@RequestBody Employee employee, Pageable pageable) {
+		return new ResponseEntity<>(new Response(ResultCode.SUCCESS, empService.findAll(EmployeeSpecification.filterEmployee(employee), pageable), Message.SUCCESS), HttpStatus.OK);		
 	}
 	
 }

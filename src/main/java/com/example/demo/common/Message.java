@@ -10,4 +10,8 @@ public class Message {
 	
 	public static String SUCCESS = "Success";
 	
+	public static String INVALID = "Invalid Credentials";
+	
+	public static String CONSTRAINT_VIOLATION = "Constraint Violation: Duplicate entry";
+	
 }
